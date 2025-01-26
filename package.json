@@ -1,6 +1,6 @@
 {
   "name": "test_vite",
-  "homepage": "https://oscarvinicius.github.io/test-vite/",
+  "homepage": "https://oscarvinicius.github.io/sudoku-solver/",
   "private": true,
   "version": "0.0.0",
   "type": "module",
