@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import "./App.css";
 function App() {
   const [sudoku, setSudoku] = useState([
     [8, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -216,12 +216,12 @@ function App() {
           let col = startCol + p;
           cells.push(
             <div
-              className="border-1 border-gray-300 flex justify-center items-center text-[1.2rem]"
+              className="hover:opacity-90 hover:border-blue-600 hover:shadow-blue-400 hover:shadow-xs border-1 rounded-sm border-gray-300 flex justify-center items-center text-[1.2rem]"
               key={row.toString() + "-" + col.toString()}
             >
               <p>
                 <input
-                  className="w-[32px] h-[32px] sm:min-h-[3rem] sm:min-w-[3rem] text-center "
+                  className="w-[32px] h-[32px] sm:min-h-[3rem] sm:min-w-[3rem] text-center"
                   type="tel"
                   value={sudoku[row][col] == 0 ? "" : sudoku[row][col]}
                   onChange={(e) => onCellChange(e, row, col)}
@@ -236,7 +236,7 @@ function App() {
       let cellsHtml = [];
       for (let i = 0; i < 9; i += 3) {
         cellsHtml.push(
-          <div className="flex" key={"cell-" + (i + 1).toString()}>
+          <div className="flex gap-1" key={"cell-" + (i + 1).toString()}>
             {cells.slice(i, i + 3)}
           </div>
         );
@@ -249,7 +249,7 @@ function App() {
   return (
     <>
       <div className="bg-[#4b4b4b] w-full min-h-screen py-[2rem] text-center">
-        <div className="bg-white sm:px-[2rem] pb-[2rem] shadow-2xl rounded-[1rem] inline-block text-center relative">
+        <div className="bg-custom sm:px-[2rem] pb-[2rem] shadow-2xl rounded-[0.6rem] inline-block text-center relative">
           {solveSudoku && (
             <div className="absolute  z-20 top-0 left-0 right-0 bottom-0  flex items-center justify-center">
               <div role="status">
@@ -276,7 +276,7 @@ function App() {
           {solveSudoku && (
             <div className="absolute z-10 left-0 right-0 top-0 bottom-0 bg-black rounded-[1rem] opacity-50 flex"></div>
           )}
-          <h1 className="block text-center text-[2.2rem] px-[2rem] my-4 font-bold">
+          <h1 className="block text-center text-[2rem] px-[2rem] my-4 font-semibold">
             Resolvedor de Sudoku
           </h1>
           {sudokuError && (
@@ -284,23 +284,23 @@ function App() {
               Sudoku inválido!
             </div>
           )}
-          <div className="inline-grid grid-cols-3 gap-0">
+          <div className="inline-grid grid-cols-3 gap-1">
             {html.map((v, i) => (
               <div
                 key={"grid-" + (i + 1).toString()}
-                className={i % 2 == 0 ? "bg-gray-200" : "bg-white"}
+                className={i % 2 == 0 ? "bg-white" : "bg-transparent"}
               >
                 {v}
               </div>
             ))}
           </div>
 
-          <div className="block">
+          <div className="block text-right">
             <button
               onClick={(e) => {
                 setSolveSudoku(true);
               }}
-              className="bg-[#ffd43b] hover:bg-[#cda516] border-b-8 border-gray-800 text-gray-800 border-r-4 border-l-2 border-t-2  w-full text-[1.2rem] font-bold py-3 px-5 rounded-lg cursor-pointer shadow-2xl mt-4"
+              className="bg-[#0067c0] hover:bg-[#6e9cc4] text-white shadow-blue-400 shadow-xs w-full max-w-[150px] text-[1.2rem] font-bold py-3 px-5 rounded-sm cursor-pointer mt-4"
             >
               Resolver
             </button>
@@ -310,5 +310,7 @@ function App() {
     </>
   );
 }
+
+<style></style>;
 
 export default App;
