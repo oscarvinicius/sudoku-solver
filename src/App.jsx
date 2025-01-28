@@ -240,7 +240,7 @@ function App() {
             >
               <p>
                 <input
-                  className="w-[32px] h-[32px] sm:min-h-[3rem] sm:min-w-[3rem] text-center"
+                  className="w-[26px] h-[26px] sm:min-h-[3rem] sm:min-w-[3rem] text-center"
                   type="tel"
                   value={sudoku[row][col] == 0 ? "" : sudoku[row][col]}
                   onChange={(e) => onCellChange(e, row, col)}
@@ -267,8 +267,8 @@ function App() {
 
   return (
     <>
-      <div className="bg-[#4b4b4b] w-full min-h-screen py-[2rem] text-center">
-        <div className="bg-custom sm:px-[2rem] pb-[2rem] shadow-2xl rounded-[0.6rem] inline-block text-center relative">
+      <div className="bg-[#4b4b4b] w-full min-h-screen py-[2rem] text-center px-[5px]">
+        <div className="bg-custom px-0 sm:px-[2rem] pb-[2rem] shadow-2xl rounded-[0.6rem] inline-block text-center relative">
           {solveSudoku && (
             <div className="absolute  z-20 top-0 left-0 right-0 bottom-0  flex items-center justify-center">
               <div role="status">
@@ -314,10 +314,10 @@ function App() {
             ))}
           </div>
 
-          <div className="block text-right">
+          <div className="block text-center sm:text-right px-3 sm:px-0">
             <button
               onClick={clearSudoku}
-              className="bg-[#fff068] hover:bg-[#cdc76c] text-black shadow-gray-300 shadow-xs w-full max-w-[120px] text-[1.2rem] font-bold py-3 px-5 rounded-sm cursor-pointer mt-4 mr-3"
+              className="bg-[#fff068] hover:bg-[#cdc76c] text-black shadow-gray-300 shadow-xs w-full max-w-[120px] text-[0.7rem] sm:text-[1.2rem] font-bold py-3 sm:px-5 rounded-sm cursor-pointer mt-4 mr-3"
             >
               Limpar
             </button>
@@ -325,7 +325,7 @@ function App() {
               onClick={(e) => {
                 setSolveSudoku(true);
               }}
-              className="bg-[#0067c0] hover:bg-[#6e9cc4] text-white shadow-blue-400 shadow-xs w-full max-w-[150px] text-[1.2rem] font-bold py-3 px-5 rounded-sm cursor-pointer mt-4"
+              className="bg-[#0067c0] hover:bg-[#6e9cc4] text-white shadow-blue-400 shadow-xs w-full max-w-[150px] py-3  text-[0.7rem] sm:text-[1.2rem] font-bold sm:px-5  rounded-sm cursor-pointer mt-4"
             >
               Resolver
             </button>
