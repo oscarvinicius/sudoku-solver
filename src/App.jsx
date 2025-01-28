@@ -203,6 +203,25 @@ function App() {
     }
   }
 
+  function clearSudoku() {
+    let confirmClear = confirm("Limpar sudoku?");
+
+    if (!confirmClear) {
+      return false;
+    }
+
+    let plainSudoku = [];
+    for (let i = 0; i < 9; ++i) {
+      let row = [];
+      for (let j = 0; j < 9; ++j) {
+        row.push(0);
+      }
+      plainSudoku.push(row);
+    }
+
+    setSudoku(plainSudoku);
+  }
+
   let html = [];
   for (let i = 0; i < 9; i += 3) {
     for (let j = 0; j < 9; j += 3) {
@@ -296,6 +315,12 @@ function App() {
           </div>
 
           <div className="block text-right">
+            <button
+              onClick={clearSudoku}
+              className="bg-[#fff068] hover:bg-[#cdc76c] text-black shadow-gray-300 shadow-xs w-full max-w-[120px] text-[1.2rem] font-bold py-3 px-5 rounded-sm cursor-pointer mt-4 mr-3"
+            >
+              Limpar
+            </button>
             <button
               onClick={(e) => {
                 setSolveSudoku(true);
